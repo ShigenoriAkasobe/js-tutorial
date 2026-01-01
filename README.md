@@ -57,3 +57,5 @@ npm start
 ```
 
 ブラウザで `http://localhost:3000` を開きます。
+
+詳細（API/トラブルシュート）は [apps/final-webapp/README.md](apps/final-webapp/README.md) を参照してください。
