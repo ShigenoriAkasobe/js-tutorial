@@ -1,0 +1,16 @@
+{
+  "name": "js-tutorial",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "lesson:01": "node lessons/01-basics/index.js",
+    "lesson:02": "node lessons/02-modules/index.js",
+    "lesson:03": "node lessons/03-async/index.js",
+    "lesson:04": "node lessons/04-cli/cli.js",
+    "lesson:05": "node lessons/05-web/server.js",
+    "start": "node apps/final-webapp/server.js"
+  }
+}
