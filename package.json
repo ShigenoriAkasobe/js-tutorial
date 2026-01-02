@@ -11,6 +11,9 @@
     "lesson:03": "node lessons/03-async/index.js",
     "lesson:04": "node lessons/04-cli/cli.js",
     "lesson:05": "node lessons/05-web/server.js",
+    "lesson:06": "node lessons/06-frontend-dom/server.js",
+    "lesson:07": "node lessons/07-frontend-forms/server.js",
+    "lesson:08": "node lessons/08-frontend-fetch/server.js",
     "start": "node apps/final-webapp/server.js"
   }
 }

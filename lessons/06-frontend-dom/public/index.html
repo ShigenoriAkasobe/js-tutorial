@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesson 06: DOM / イベント</title>
+  </head>
+  <body>
+    <h1>Lesson 06: DOM / イベント / 再描画</h1>
+
+    <section>
+      <h2>カウンター</h2>
+      <p>
+        <button id="dec" type="button">-1</button>
+        <strong id="count">0</strong>
+        <button id="inc" type="button">+1</button>
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>タスク（state → render の練習）</h2>
+
+      <form id="form">
+        <input id="text" name="text" type="text" placeholder="例: 牛乳を買う" required />
+        <button type="submit">追加</button>
+      </form>
+
+      <p>
+        <button id="clearDone" type="button">完了をまとめて削除</button>
+      </p>
+
+      <ul id="list"></ul>
+    </section>
+
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>

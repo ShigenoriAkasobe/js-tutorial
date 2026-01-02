@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesson 07: フォーム</title>
+  </head>
+  <body>
+    <h1>Lesson 07: フォーム / バリデーション / localStorage</h1>
+
+    <section>
+      <h2>プロフィール</h2>
+      <form id="form">
+        <p>
+          <label>
+            表示名（必須）
+            <input name="displayName" type="text" required minlength="2" maxlength="20" />
+          </label>
+        </p>
+
+        <p>
+          <label>
+            メール（必須）
+            <input name="email" type="email" required />
+          </label>
+        </p>
+
+        <p>
+          <label>
+            年齢（任意）
+            <input name="age" type="number" min="0" max="130" />
+          </label>
+        </p>
+
+        <p>
+          <label>
+            自己紹介（任意）
+            <textarea name="bio" rows="3" maxlength="120" placeholder="短めに…"></textarea>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input name="newsletter" type="checkbox" />
+            ニュースレターを受け取る
+          </label>
+        </p>
+
+        <p>
+          <button id="save" type="submit">保存</button>
+          <button id="reset" type="button">保存データを消す</button>
+        </p>
+
+        <p id="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>プレビュー</h2>
+      <div id="preview"></div>
+    </section>
+
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>

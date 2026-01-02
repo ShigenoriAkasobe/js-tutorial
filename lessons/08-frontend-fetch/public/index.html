@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesson 08: fetch</title>
+  </head>
+  <body>
+    <h1>Lesson 08: fetch / JSON / エラーハンドリング</h1>
+
+    <section>
+      <h2>Todo（API経由）</h2>
+
+      <form id="form">
+        <input id="text" name="text" type="text" placeholder="例: CORSの意味を調べる" required />
+        <button id="add" type="submit">追加</button>
+      </form>
+
+      <p>
+        <button id="reload" type="button">再読み込み</button>
+      </p>
+
+      <p id="info" aria-live="polite"></p>
+      <p id="error" aria-live="polite"></p>
+
+      <ul id="list"></ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>キャンセル（AbortController）</h2>
+      <p>
+        <button id="slowStart" type="button">遅いAPIを叩く</button>
+        <button id="slowCancel" type="button">キャンセル</button>
+      </p>
+      <p id="slowResult" aria-live="polite"></p>
+    </section>
+
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>

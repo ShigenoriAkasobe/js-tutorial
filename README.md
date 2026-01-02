@@ -47,6 +47,9 @@ Web（レッスン/最終アプリ）はサーバーが起動するので、別�
 - Lesson 03: 非同期（Promise/async/await）（[lessons/03-async/README.md](lessons/03-async/README.md)）
 - Lesson 04: CLI（引数・標準入力・終了コード）（[lessons/04-cli/README.md](lessons/04-cli/README.md)）
 - Lesson 05: 最小のHTTPサーバ（[lessons/05-web/README.md](lessons/05-web/README.md)）
+- Lesson 06: フロントエンド基礎（DOM / イベント / 再描画）（[lessons/06-frontend-dom/README.md](lessons/06-frontend-dom/README.md)）
+- Lesson 07: フロントエンド基礎（フォーム / バリデーション / localStorage）（[lessons/07-frontend-forms/README.md](lessons/07-frontend-forms/README.md)）
+- Lesson 08: フロントエンド基礎（fetch / JSON / エラーハンドリング）（[lessons/08-frontend-fetch/README.md](lessons/08-frontend-fetch/README.md)）
 
 ## 最終ミニWebアプリ
 
