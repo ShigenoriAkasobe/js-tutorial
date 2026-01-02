@@ -68,6 +68,40 @@ await Promise.race([
 ]);
 ```
 
+#### `withTimeout(promise, ms, label)` の解説
+
+このレッスンのコードでは、`Promise.race` を使って「指定時間以内に終わらなければ失敗にする」ためのヘルパー `withTimeout()` を用意しています。
+
+やっていることは大きく3つです。
+
+1. **タイムアウト用の Promise を作る**
+  - `setTimeout` で `ms` ミリ秒後に `reject(new Error(...))` する Promise を用意する
+2. **本命の Promise とタイムアウトを `Promise.race` で競争させる**
+  - 先に成功/失敗した方が結果になる
+3. **`finally` でタイマーを必ず止める**
+  - 成功/失敗どちらでも `clearTimeout` して後始末する
+
+コードの形は次の通りです。
+
+```js
+async function withTimeout(promise, ms, label = "operation") {
+	let timeoutId;
+	const timeoutPromise = new Promise((_, reject) => {
+		timeoutId = setTimeout(() => {
+			reject(new Error(`${label} timed out after ${ms}ms`));
+		}, ms);
+	});
+
+	try {
+		return await Promise.race([promise, timeoutPromise]);
+	} finally {
+		clearTimeout(timeoutId);
+	}
+}
+```
+
+注意: これは「待つのをやめる」仕組みで、**本命の処理が中断されるとは限りません**（すでに走っている I/O が裏で続くことがあります）。本当に中断したい場合は、処理側がキャンセル（例: `AbortController`）に対応している必要があります。
+
 ## ファイルI/O（fs/promises）
 
 このレッスンでは JSON を読み込んで `JSON.parse` します。
