@@ -4,6 +4,11 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function busy(ms) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) {}
+}
+
 function section(title) {
   console.log(`\n=== ${title} ===`);
 }
@@ -13,6 +18,15 @@ function job(name, ms, { fail = false } = {}) {
     if (fail) throw new Error(`${name} failed`);
     return name;
   });
+}
+
+function job_busy(name, ms, {fail = false} = {}) {
+  return Promise.resolve()
+    .then( () => {
+      busy(ms);
+      if (fail) throw new Error(`${name} failed`);
+      return name;
+    });
 }
 
 async function withTimeout(promise, ms, label = "operation") {
@@ -45,6 +59,14 @@ async function main() {
     .then(() => "slept 100ms")
     .then((msg) => {
       console.log(msg);
+      return msg.length;
+    })
+    .then((len) => {
+      console.log("message length:", len);
+      return Promise.resolve(len * 2);  // 明示的に Promise を返す。冗長に書くとこうなる。
+    })
+    .then((doubled) => {
+      console.log("doubled length:", doubled);
     })
     .catch((err) => {
       console.error("unexpected:", err);
@@ -61,6 +83,17 @@ async function main() {
     const startedAt = Date.now();
     const results = await Promise.all([job("A", 200), job("B", 300)]);
     console.log("parallel:", results, "elapsed(ms):", Date.now() - startedAt);
+  }
+
+  section("並行処理≠並列処理")
+  {
+    const startedAt = Date.now();
+    const results = await Promise.all([
+      job_busy("A", 200),
+      job_busy("B", 300),
+    ]);
+    console.log("concurrent but not parallel:", results, "elapsed(ms):", Date.now() - startedAt
+    );
   }
 
   section("Promise.all の失敗 (reject)");
