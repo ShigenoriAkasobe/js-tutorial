@@ -116,7 +116,8 @@ async function main() {
 
   section("try/catch (同期例外/非同期例外)");
   try {
-    JSON.parse("not json");
+    JSON.parse("{ \"valid\": true }");  // 正常ケース
+    JSON.parse("not json");  // 例外発生
   } catch (err) {
     console.log("caught:", err instanceof Error ? err.message : err);
   }
